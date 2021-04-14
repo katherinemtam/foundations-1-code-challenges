@@ -20,7 +20,7 @@ Output:
 
 export function makeArrayOfNamesWithMap(arr) {
     const array = [];
-    arr.map((item) => array.push(item.name))
+    arr.map(item => array.push(item.name))
     return array;
 }
 
@@ -35,7 +35,7 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-    const hungry = arr.map((item) => item.isHungry = true,)
+    const hungry = arr.map(item => item.isHungry = true,)
     return arr;
 }
 
@@ -51,7 +51,7 @@ Output:
 
 export function makeShoutingArray(arr) {
     const array = [];
-    const shout = arr.map((item) => ({ name: item.name.toUpperCase(), type: item.type }))
+    const shout = arr.map(item => ({ name: item.name.toUpperCase(), type: item.type }))
     return shout;
 }
 
@@ -63,8 +63,8 @@ Output:
 */
 
 export function makeStringArray(arr) {
-
-    return [];
+    const strings = arr.map(item => item.name + item.type)
+    return strings;
 }
 
 /*
@@ -90,5 +90,28 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    const array = [];
+    for (let entry in arr) {
+        const inner_arr = [];
+
+        for (let prop in arr[entry]) {
+            const inner_inner_arr = [];
+
+            inner_inner_arr.push(prop + "");
+            inner_inner_arr.push(arr[entry][prop]);
+
+            inner_arr.push(inner_inner_arr);
+        }
+        array.push(inner_arr);
+    }
+    return array;
 }
+
+/*
+const pets = [
+    { name: 'scooter', type: 'puppy' },
+    { name: 'sassy', type: 'puppy' },
+    { name: 'legzo', type: 'frog' },
+    { name: 'fluff', type: 'squirrel' },
+];
+*/
